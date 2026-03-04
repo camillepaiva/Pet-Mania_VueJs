@@ -1,30 +1,28 @@
 <template>
-  <CabecalhoPrincipal />
-  <SessaoInicial id="inicio" />
-  <SegundaSessao id="quem-somos" />
-  <TerceiraSessao id="loja-pet" />
-  <QuartaSessao id="avaliacoes" />
-  <QuintaSessao id="venha-ser-pet-mania" />
+  <div class="home-page">
+    <CabecalhoPrincipal />
+
+    <main>
+      <SessaoInicial id="inicio" />
+      <SegundaSessao id="quem-somos" />
+      <TerceiraSessao id="loja-pet" />
+      <QuartaSessao id="avaliacoes" />
+      <QuintaSessao id="venha-ser-pet-mania" />
+    </main>
+  </div>
 </template>
 
-<script>
+<script setup>
 import CabecalhoPrincipal from "@/components/CabecalhoPrincipal.vue";
-import SessaoInicial from "./SessaoInicial.vue";
-import SegundaSessao from "./SegundaSessao.vue";
-import TerceiraSessao from "./TerceiraSessao.vue";
-import QuartaSessao from "./QuartaSessao.vue";
-import QuintaSessao from "./QuintaSessao.vue";
-
-export default {
-  name: "InicioPage",
-
-  components: {
-    CabecalhoPrincipal,
-    SessaoInicial,
-    SegundaSessao,
-    TerceiraSessao,
-    QuartaSessao,
-    QuintaSessao,
-  },
-};
+import SessaoInicial from "@/components/SessaoInicial.vue";
+import SegundaSessao from "@/components/SegundaSessao.vue";
+import TerceiraSessao from "@/components/TerceiraSessao.vue";
+import QuartaSessao from "@/components/QuartaSessao.vue";
+import QuintaSessao from "@/components/QuintaSessao.vue";
 </script>
+
+<style scoped>
+.home-page {
+  min-height: 100vh;
+}
+</style>

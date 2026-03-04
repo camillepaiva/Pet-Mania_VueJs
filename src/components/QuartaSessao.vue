@@ -1,78 +1,118 @@
 <template>
-  <div class="sessao4_container">
-    <h2>AVALIAÇÕES DE NOSSOS CLIENTES</h2>
-    <div class="cards_container">
-      <div class="card">
-        <img src="../assets/assertsInicio/sessao4/pessoa1.png" />
-        <h4>JULIANA FREITAS</h4>
-        <p>Levei o meu Pet para tomar banho e ele amou ...</p>
+  <section class="reviews section-shell">
+    <div class="container fade-up">
+      <div class="section-header">
+        <span class="eyebrow">Avaliacoes</span>
+        <h2>Clientes que voltam e recomendam para outros tutores.</h2>
+        <p>
+          Feedback real sobre atendimento, cuidado e qualidade dos servicos
+          oferecidos na PetMania.
+        </p>
       </div>
 
-      <div class="card">
-        <img src="../assets/assertsInicio/sessao4/pessoa2.png" />
-        <h4>JOAO AUGUSTO</h4>
-        <p>Melhor PetShop que existe, amei o atendimento ...</p>
-      </div>
-
-      <div class="card">
-        <img src="../assets/assertsInicio/sessao4/pessoa3.png" />
-        <h4>ELEN DA SILVA</h4>
-        <p>Possui ótimos produtos e várias opções de roupas...</p>
+      <div class="reviews-grid">
+        <article v-for="review in reviews" :key="review.name" class="card review-card">
+          <img :src="review.avatar" :alt="`Foto de ${review.name}`" />
+          <div>
+            <h3>{{ review.name }}</h3>
+            <p class="review-role">{{ review.role }}</p>
+          </div>
+          <p class="review-text">{{ review.comment }}</p>
+          <span class="review-stars">{{ review.stars }}</span>
+        </article>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script></script>
+<script setup>
+import personOne from "@/assets/assertsInicio/sessao4/pessoa1.png";
+import personTwo from "@/assets/assertsInicio/sessao4/pessoa2.png";
+import personThree from "@/assets/assertsInicio/sessao4/pessoa3.png";
 
-<style>
-.sessao4_container {
-  background-image: url("../assets/assertsInicio/sessao4/fundoSessao4.png");
-  background-size: cover;
-  height: 750px;
-  margin-top: -106px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 100px;
+const reviews = [
+  {
+    name: "Juliana Freitas",
+    role: "Tutora da Nina",
+    comment:
+      "Minha cachorra ficou tranquila no banho e saiu super cheirosa. Atendimento excelente do inicio ao fim.",
+    stars: "5/5",
+    avatar: personOne,
+  },
+  {
+    name: "Joao Augusto",
+    role: "Tutor do Thor",
+    comment:
+      "Agendamento rapido, equipe atenciosa e produtos de boa qualidade. Virou minha loja principal para o Thor.",
+    stars: "5/5",
+    avatar: personTwo,
+  },
+  {
+    name: "Elen da Silva",
+    role: "Tutora da Mel",
+    comment:
+      "Gostei muito da organizacao e da orientacao que recebi para escolher roupa e acessorios da minha pet.",
+    stars: "4/5",
+    avatar: personThree,
+  },
+];
+</script>
 
-  h2 {
-    margin-left: 20%;
-    margin-right: 20%;
-    color: #fff;
-  }
+<style scoped>
+.reviews {
+  background:
+    linear-gradient(180deg, rgba(240, 138, 75, 0.09), rgba(240, 138, 75, 0)),
+    var(--color-bg);
 }
 
-.cards_container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  column-gap: 50px;
-
-  img {
-    width: 130px;
-    height: 130px;
-  }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.card {
-  background-color: #fff;
-  border-radius: 20px;
-  border: 2px solid #ff06a2;
-  width: 290px;
-  height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.review-card {
+  padding: 1.05rem;
+  display: grid;
+  gap: 0.6rem;
+}
 
-  p {
-    width: 240px;
+.review-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-card h3 {
+  font-size: 1.02rem;
+}
+
+.review-role {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.review-text {
+  color: #374254;
+  line-height: 1.4;
+  min-height: 86px;
+}
+
+.review-stars {
+  color: #d08a2e;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 960px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
   }
 
-  h4 {
-    color: #ff06a2;
+  .review-text {
+    min-height: 0;
   }
 }
 </style>

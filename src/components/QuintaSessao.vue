@@ -1,49 +1,74 @@
 <template>
-  <div class="sessao5_container">
-    <h2>VENHA SER PET MANIA LOVER!</h2>
-    <div class="img_container">
-      <img
-        class="img_fim"
-        src="../assets/assertsInicio/sessao5/img5Final.png"
-      />
-      <img
-        class="pegadas"
-        src="../assets/assertsInicio/sessao1/img1Pegadas.png"
-      />
+  <section class="community section-shell">
+    <div class="container">
+      <div class="card cta-banner fade-up">
+        <div class="cta-copy">
+          <span class="eyebrow">Comunidade PetMania</span>
+          <h2>Entre para o clube de tutores que cuidam com estrategia.</h2>
+          <p>
+            Receba dicas de rotina, avisos de campanhas sazonais e novidades da
+            loja para manter seu pet sempre bem.
+          </p>
+          <RouterLink class="button button-primary" to="/agendamento">
+            Quero entrar
+          </RouterLink>
+        </div>
+
+        <img
+          class="cta-image"
+          src="@/assets/assertsInicio/sessao5/img5Final.png"
+          alt="Pets posando para campanha da PetMania"
+        />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script></script>
+<style scoped>
+.community {
+  padding-top: 1.2rem;
+  padding-bottom: 5.5rem;
+}
 
-<style>
-.sessao5_container {
-  display: flex;
-  flex-direction: column;
-  row-gap: 100px;
-  text-align: center;
+.cta-banner {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+}
 
-  h2 {
-    padding-top: 100px;
-    color: #fff;
+.cta-copy {
+  padding: 0.3rem 0.4rem 0.3rem 0.5rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cta-copy h2 {
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+}
+
+.cta-copy p {
+  color: var(--color-muted);
+  max-width: 500px;
+}
+
+.cta-image {
+  width: 100%;
+  min-height: 330px;
+  object-fit: cover;
+  border-radius: calc(var(--radius-xl) - 8px);
+}
+
+@media (max-width: 900px) {
+  .cta-banner {
+    grid-template-columns: 1fr;
   }
-}
 
-.img_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: -50px;
-}
-
-.img_fim {
-  width: 1100px;
-  height: 600px;
-}
-
-.pegadas {
-  width: 300px;
-  height: 400px;
-  margin-right: -55px;
+  .cta-image {
+    min-height: 230px;
+  }
 }
 </style>

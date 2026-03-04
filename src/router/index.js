@@ -1,23 +1,32 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Inicio from "@/components/InicioPage.vue";
+import InicioPage from "@/components/InicioPage.vue";
 import AgendamentoPet from "@/components/AgendamentoPet.vue";
 
 const routes = [
   {
     path: "/",
-    component: Inicio,
+    name: "inicio",
+    component: InicioPage,
   },
-
   {
-    path: "/AgendamentoPet",
+    path: "/agendamento",
+    alias: "/AgendamentoPet",
+    name: "agendamento",
     component: AgendamentoPet,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/",
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior() {
+    return { top: 0, behavior: "smooth" };
+  },
 });
 
 export default router;

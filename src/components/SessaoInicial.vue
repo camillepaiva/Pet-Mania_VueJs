@@ -1,76 +1,133 @@
 <template>
-  <div class="primeiraTela">
-    <img
-      class="umaPegada"
-      src="../assets/assertsInicio/sessao1/img1Umapegada.png"
-    />
-    <img class="imgInicial" src="../assets/assertsInicio/sessao1/img1Dog.png" />
-    <div class="textPublicitario">
-      <h2>O MELHOR PARA O SEU PET VOCÊ SÓ ENCONTRA NA PET MANIA</h2>
-      <p>
-        Ter um animal de estimação é sinal de companheirismo, amor e cuidado!
-      </p>
-      <router-link to="/AgendamentoPet"
-        ><button class="btnPrincipal">Agendar Atendimento</button>
-      </router-link>
+  <section class="hero section-shell">
+    <div class="container hero-grid fade-up">
+      <div class="hero-copy">
+        <span class="eyebrow">Pet care em um so lugar</span>
+        <h1>
+          Mais bem-estar para o seu pet com atendimento humano e ambiente
+          acolhedor.
+        </h1>
+        <p>
+          Banho, tosa, consultas e produtos selecionados para facilitar a rotina
+          de quem ama cuidar bem.
+        </p>
+
+        <div class="hero-actions">
+          <RouterLink to="/agendamento" class="button button-primary">
+            Agendar atendimento
+          </RouterLink>
+          <a href="#loja-pet" class="button button-secondary">Ver produtos</a>
+        </div>
+
+        <ul class="hero-highlights">
+          <li>+3.000 pets atendidos</li>
+          <li>Equipe especializada</li>
+          <li>Atendimento personalizado</li>
+        </ul>
+      </div>
+
+      <div class="hero-media card">
+        <img
+          class="hero-main-image"
+          src="@/assets/assertsInicio/sessao1/img1Dog.png"
+          alt="Cachorro feliz com roupa da PetMania"
+        />
+        <img
+          class="hero-paw"
+          src="@/assets/assertsInicio/sessao1/img1Umapegada.png"
+          alt="Ilustracao de pata"
+        />
+      </div>
     </div>
-    <img
-      class="pegadasLaterais"
-      src="../assets/assertsInicio/sessao1/img1Pegadas.png"
-    />
-  </div>
+  </section>
 </template>
 
-<script>
-export default {};
-</script>
-
-<style>
-body {
-  background-color: #305bf9;
+<style scoped>
+.hero {
+  padding-top: 2.8rem;
 }
-.primeiraTela {
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-copy h1 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.hero-copy p {
+  color: var(--color-muted);
+  max-width: 560px;
+  font-size: 1.03rem;
+}
+
+.hero-actions {
   display: flex;
-  flex-direction: row;
-  column-gap: -40px;
-  padding-top: 80px;
+  flex-wrap: wrap;
+  gap: 0.65rem;
 }
 
-.umaPegada {
-  width: 156px;
-  height: 140px;
-  margin-left: -67px;
+.hero-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
-.imgInicial {
-  width: 800px;
-  height: 900px;
-  margin-top: -150px;
+.hero-highlights li {
+  font-size: 0.88rem;
+  color: #2f453f;
+  background: rgba(36, 92, 83, 0.1);
+  border-radius: 999px;
+  padding: 0.34rem 0.65rem;
 }
 
-.textPublicitario {
-  margin-top: 150px;
-  margin-right: 100px;
-  margin-left: -90px;
-  color: white;
-  p {
-    width: 400px;
+.hero-media {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.hero-main-image {
+  width: 100%;
+  border-radius: calc(var(--radius-xl) - 8px);
+  object-fit: cover;
+  aspect-ratio: 4 / 4.2;
+}
+
+.hero-paw {
+  position: absolute;
+  width: 78px;
+  right: 0.9rem;
+  top: 0.7rem;
+  opacity: 0.92;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-media {
+    max-width: 560px;
   }
 }
-.pegadasLaterais {
-  width: 250px;
-  height: 300px;
-  margin-top: 430px;
-  margin-right: 70px;
-}
-.btnPrincipal {
-  color: white;
-  background-color: #ff06a2;
-  width: 200px;
-  height: 45px;
-  border-radius: 10px;
-  border: none;
-  margin-top: 10px;
-  cursor: pointer;
+
+@media (max-width: 580px) {
+  .hero {
+    padding-top: 2rem;
+  }
 }
 </style>
